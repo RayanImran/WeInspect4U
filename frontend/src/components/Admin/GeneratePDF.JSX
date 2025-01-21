@@ -199,3 +199,4 @@ function capitalizeLabel(key) {
   // Capitalize first letter
   return spaced.charAt(0).toUpperCase() + spaced.slice(1);
 }
+export default generatePDF;
