@@ -1,7 +1,7 @@
 // src/components/Admin/Admin.jsx
 
 import React from "react";
-import AdminForm from "./AdminForm";
+import AdminForm from "./AdminForm.jsx";
 
 function Admin() {
   return (

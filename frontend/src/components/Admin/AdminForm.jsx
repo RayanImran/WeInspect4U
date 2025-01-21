@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { useNavigate, useLocation } from "react-router-dom";
 import carImage from "../../assets/HomeImages/admin.jpg";
-import AdminModal from "./AdminModal";
-import generatePDF from "./GeneratePDF";
+import AdminModal from "./AdminModal.jsx";
+import generatePDF from "./GeneratePDF.jsx";
 
 function AdminForm() {
   const location = useLocation();
