@@ -21,7 +21,6 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 
 # Ignore .idea folder (for JetBrains IDEs like WebStorm, PyCharm, etc.)
