@@ -83,6 +83,7 @@ const Carousel = () => {
         <div className="mt-8 text-gray-300 text-sm">
           <p>Trusted by thousands of car buyers in Winnipeg</p>
           <p>Fast, Reliable, and On-Demand Services</p>
+          {/* abcs */}
         </div>
       </div>
     </div>
