@@ -1,185 +1,160 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 
-const PricingPlans = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+const ComparisonTable = () => {
+  const competitors = [
+    {
+      name: "AutoInspectors",
+      price: "$199",
+      certified: true,
+      home: true,
+      unbiased: true,
+      service: true,
+      warranty: true,
+      repairs: true,
+    },
+    {
+      name: "BMW",
+      price: "$220",
+      certified: true,
+      home: false,
+      unbiased: false,
+      service: false,
+      warranty: false,
+      repairs: false,
+    },
+    {
+      name: "Canadian Tire",
+      price: "$140-$200",
+      certified: true,
+      home: false,
+      unbiased: false,
+      service: false,
+      warranty: false,
+      repairs: false,
+    },
+    {
+      name: "Local Repair Shops",
+      price: "$70-$130",
+      certified: true,
+      home: false,
+      unbiased: false,
+      service: false,
+      warranty: false,
+      repairs: false,
+    },
+    {
+      name: "Other Mobile Companies",
+      price: "$169-$329",
+      certified: "depends",
+      home: "depends",
+      unbiased: "depends",
+      service: "depends",
+      warranty: "depends",
+      repairs: false,
+    },
+  ];
 
-  const handleButtonClick = () => {
-    navigate("/inspection"); // Navigate to the /inspection route
+  const renderIcon = (value) => {
+    if (value === true)
+      return <span className="text-green-500 font-bold">✔️</span>;
+    if (value === false)
+      return <span className="text-red-500 font-bold">✖️</span>;
+    return <span className="text-yellow-500 font-bold">⚠️</span>; // For "depends"
   };
 
   return (
-      <div className="bg-gray-900 py-16 mt-12">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-white mb-10">
-            Choose Your Plan
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {/* Sedan Plan */}
-            <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex flex-col">
-              <h3 className="text-2xl font-bold mb-4 text-center uppercase">
-                Sedan
-              </h3>
-              <p className="text-center mb-4">
-                <span className="text-xl text-gray-400 line-through mr-2">$200</span>
-                <span className="text-4xl font-bold text-yellow-400">$150</span>
-              </p>
-              <p className="text-center text-red-500 text-sm italic mb-4">
-                Limited Time Offer!
-              </p>
-              <ul className="space-y-2 mb-4 flex-grow">
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Inspection for sedans
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Comprehensive vehicle inspection
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Steering and suspension check
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Brake inspection
-                </li>
-              </ul>
-              <div className="flex flex-col">
-                <div className="bg-gray-700 text-center py-3 font-bold text-white rounded-t-md">
-                  SAMPLE REPORT
-                </div>
-                <button
-                    onClick={handleButtonClick}
-                    className="bg-yellow-500 text-black font-bold py-3 text-center hover:bg-yellow-600 transition rounded-b-md"
-                >
-                  ORDER INSPECTION
-                </button>
-              </div>
-            </div>
+    <section className="bg-gray-50 py-12">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">
+          Why Choose <span className="text-green-600">AutoInspectors?</span>
+        </h2>
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+          Compare our unbiased, certified inspections with others in the market.
+        </p>
 
-            {/* SUV Plan */}
-            <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex flex-col">
-              <h3 className="text-2xl font-bold mb-4 text-center uppercase">
-                SUV
-              </h3>
-              <p className="text-center mb-4">
-                <span className="text-xl text-gray-400 line-through mr-2">$220</span>
-                <span className="text-4xl font-bold text-yellow-400">$180</span>
-              </p>
-              <p className="text-center text-red-500 text-sm italic mb-4">
-                Limited Time Offer!
-              </p>
-              <ul className="space-y-2 mb-4 flex-grow">
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Inspection for SUVs
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Comprehensive vehicle inspection
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Steering and suspension check
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Brake inspection
-                </li>
-              </ul>
-              <div className="flex flex-col">
-                <div className="bg-gray-700 text-center py-3 font-bold text-white rounded-t-md">
-                  SAMPLE REPORT
-                </div>
-                <button
-                    onClick={handleButtonClick}
-                    className="bg-yellow-500 text-black font-bold py-3 text-center hover:bg-yellow-600 transition rounded-b-md"
-                >
-                  ORDER INSPECTION
-                </button>
-              </div>
-            </div>
-
-            {/* AWD Sedan Plan */}
-            <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex flex-col">
-              <h3 className="text-2xl font-bold mb-4 text-center uppercase">
-                AWD Sedan
-              </h3>
-              <p className="text-center mb-4">
-                <span className="text-xl text-gray-400 line-through mr-2">$210</span>
-                <span className="text-4xl font-bold text-yellow-400">$170</span>
-              </p>
-              <p className="text-center text-red-500 text-sm italic mb-4">
-                Limited Time Offer!
-              </p>
-              <ul className="space-y-2 mb-4 flex-grow">
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Inspection for AWD Sedans
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Comprehensive vehicle inspection
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Steering and suspension check
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Brake inspection
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Differential and Transfer Case check
-                </li>
-              </ul>
-              <div className="flex flex-col">
-                <div className="bg-gray-700 text-center py-3 font-bold text-white rounded-t-md">
-                  SAMPLE REPORT
-                </div>
-                <button
-                    onClick={handleButtonClick}
-                    className="bg-yellow-500 text-black font-bold py-3 text-center hover:bg-yellow-600 transition rounded-b-md"
-                >
-                  ORDER INSPECTION
-                </button>
-              </div>
-            </div>
-
-            {/* AWD SUV Plan */}
-            <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex flex-col">
-              <h3 className="text-2xl font-bold mb-4 text-center uppercase">
-                AWD SUV
-              </h3>
-              <p className="text-center mb-4">
-                <span className="text-xl text-gray-400 line-through mr-2">$250</span>
-                <span className="text-4xl font-bold text-yellow-400">$200</span>
-              </p>
-              <p className="text-center text-red-500 text-sm italic mb-4">
-                Limited Time Offer!
-              </p>
-              <ul className="space-y-2 mb-4 flex-grow">
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Inspection for AWD SUVs
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Comprehensive vehicle inspection
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Steering and suspension check
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Brake inspection
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✔️</span> Differential and Transfer Case check
-                </li>
-              </ul>
-              <div className="flex flex-col">
-                <div className="bg-gray-700 text-center py-3 font-bold text-white rounded-t-md">
-                  SAMPLE REPORT
-                </div>
-                <button
-                    onClick={handleButtonClick}
-                    className="bg-yellow-500 text-black font-bold py-3 text-center hover:bg-yellow-600 transition rounded-b-md"
-                >
-                  ORDER INSPECTION
-                </button>
-              </div>
-            </div>
-          </div>
+        {/* Table */}
+        <div className="overflow-x-auto">
+          <table className="table-auto border-collapse w-full bg-white shadow-md rounded-lg">
+            <thead>
+              <tr className="bg-gray-800 text-white text-left">
+                <th className="py-3 px-4 font-medium">Service</th>
+                {competitors.map((competitor, index) => (
+                  <th key={index} className="py-3 px-4 font-medium text-center">
+                    {competitor.name}
+                    <p className="text-sm text-gray-300">{competitor.price}</p>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* Rows */}
+              <tr className="hover:bg-gray-100">
+                <td className="py-3 px-4 font-medium text-gray-800">
+                  Certified Mechanics
+                </td>
+                {competitors.map((competitor, index) => (
+                  <td key={index} className="py-3 px-4 text-center">
+                    {renderIcon(competitor.certified)}
+                  </td>
+                ))}
+              </tr>
+              <tr className="hover:bg-gray-100">
+                <td className="py-3 px-4 font-medium text-gray-800">
+                  Stay at Home
+                </td>
+                {competitors.map((competitor, index) => (
+                  <td key={index} className="py-3 px-4 text-center">
+                    {renderIcon(competitor.home)}
+                  </td>
+                ))}
+              </tr>
+              <tr className="hover:bg-gray-100">
+                <td className="py-3 px-4 font-medium text-gray-800">
+                  Unbiased Opinion
+                </td>
+                {competitors.map((competitor, index) => (
+                  <td key={index} className="py-3 px-4 text-center">
+                    {renderIcon(competitor.unbiased)}
+                  </td>
+                ))}
+              </tr>
+              <tr className="hover:bg-gray-100">
+                <td className="py-3 px-4 font-medium text-gray-800">
+                  Service Under 24h
+                </td>
+                {competitors.map((competitor, index) => (
+                  <td key={index} className="py-3 px-4 text-center">
+                    {renderIcon(competitor.service)}
+                  </td>
+                ))}
+              </tr>
+              <tr className="hover:bg-gray-100">
+                <td className="py-3 px-4 font-medium text-gray-800">
+                  Repairs to Plan
+                </td>
+                {competitors.map((competitor, index) => (
+                  <td key={index} className="py-3 px-4 text-center">
+                    {renderIcon(competitor.repairs)}
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        {/* Call to Action
+        <div className="text-center mt-8">
+          <button
+            onClick={() => alert("Navigate to booking")}
+            className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg shadow-lg font-bold transition"
+          >
+            Book Inspection
+          </button>
+        </div> */}
       </div>
+    </section>
   );
 };
 
-export default PricingPlans;
+export default ComparisonTable;
