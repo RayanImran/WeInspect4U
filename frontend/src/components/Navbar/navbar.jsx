@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import carInspection from "../../assets/HomeImages/inspectionpicture.svg";
 
 const Navbar = () => {
@@ -19,24 +19,31 @@ const Navbar = () => {
     navigate("/admin", { state: { resetAuth: true } });
   };
 
+  const handleOrderInspectionClick = () => {
+    navigate("/inspection");
+  };
+
+  const handleHomeClick = () => {
+    navigate("/"); // Navigate to the main home page
+    handleMenuClick(); // Close the menu on mobile if it's open
+  };
+
   return (
-    <nav className="bg-gray-800 p-4 shadow-lg sticky top-0 z-50">
+    <nav className="bg-gray-900 p-4 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo with Image */}
         <div className="flex items-center space-x-2">
           <img
             src={carInspection}
             alt="Car Inspection Logo"
-            className="h-12 w-15"
+            className="h-10 w-12"
           />
-
-          <Link
-            to="/"
-            onClick={handleMenuClick}
-            className="text-white text-xl font-bold tracking-wide hover:text-gray-400 transition duration-300"
+          <button
+            onClick={handleHomeClick}
+            className="text-white text-2xl font-bold tracking-wide hover:text-yellow-300 transition duration-300 focus:outline-none"
           >
             AutoInspectors
-          </Link>
+          </button>
         </div>
 
         {/* Hamburger Icon (shown on mobile only) */}
@@ -72,54 +79,43 @@ const Navbar = () => {
               : "max-h-0 opacity-0 lg:max-h-full lg:opacity-100"
           }`}
         >
-          {/* Home Link */}
+          {/* Order Inspection Button */}
           <li className="mb-4 lg:mb-0">
-            <Link
-              to="/"
-              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105"
-              onClick={handleMenuClick}
+            <button
+              onClick={handleOrderInspectionClick}
+              className="px-4 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-semibold rounded-lg shadow-md hover:from-yellow-500 hover:to-yellow-700 transition transform hover:scale-105 duration-300"
+            >
+              BOOK AN INSPECTION
+            </button>
+          </li>
+
+          {/* Links */}
+          <li className="mb-4 lg:mb-0">
+            <button
+              onClick={handleHomeClick}
+              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105 focus:outline-none"
             >
               Home
-            </Link>
+            </button>
           </li>
-
-          {/* Inspection Order Link */}
-          <li className="mb-4 lg:mb-0">
-            <Link
-              to="/inspection"
-              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105"
-              onClick={handleMenuClick}
-            >
-              Inspection Order
-            </Link>
-          </li>
-
-          {/* Blog Link */}
-          <li className="mb-4 lg:mb-0">
-            <Link
-              to="/blog"
-              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105"
-              onClick={handleMenuClick}
-            >
-              Blog
-            </Link>
-          </li>
-
-          {/* Contact Us Link */}
-          <li className="mb-4 lg:mb-0">
-            <Link
-              to="/contact"
-              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105"
-              onClick={handleMenuClick}
-            >
-              Contact Us
-            </Link>
-          </li>
+          {["About", "FAQ", "Blog", "Contact Us"].map((link, idx) => (
+            <li key={idx} className="mb-4 lg:mb-0">
+              <button
+                onClick={() => {
+                  navigate(`/${link.replace(/\s+/g, "").toLowerCase()}`);
+                  handleMenuClick();
+                }}
+                className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105 focus:outline-none"
+              >
+                {link}
+              </button>
+            </li>
+          ))}
 
           {/* Admin Link */}
           <li className="mb-4 lg:mb-0">
             <button
-              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105"
+              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105 focus:outline-none"
               onClick={handleAdminClick}
             >
               Admin
