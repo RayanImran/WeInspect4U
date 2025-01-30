@@ -93,7 +93,15 @@ const Navbar = () => {
               Inspection Order
             </Link>
           </li>
-
+          <li className="mb-4 lg:mb-0">
+            <Link
+              to="/faqs"
+              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-105"
+              onClick={handleMenuClick}
+            >
+              FAQs
+            </Link>
+          </li>
           {/* Blog Link */}
           <li className="mb-4 lg:mb-0">
             <Link
