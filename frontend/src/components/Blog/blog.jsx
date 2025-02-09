@@ -6,10 +6,12 @@ import blogImage from "../../assets/BlogImages/blog.jpg"; // Importing the image
 
 const Blog = () => {
   return (
-    <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat p-8"
-      style={{ backgroundImage: `url(${blogImage})` }} // Using the imported image
-    >
+    <div  className="bg-gray-900 py-12 text-white"
+      // className="min-h-screen bg-cover bg-center bg-no-repeat p-8"
+      // style={{ backgroundImage: `url(${blogImage})` }} // Using the imported image
+      >
+
+
       <div className="bg-gray-800 bg-opacity-90 rounded-lg shadow-lg max-w-6xl mx-auto p-8">
         <h1 className="text-4xl font-bold text-center text-white mb-6">
           AutoInspectors Blog
@@ -23,6 +25,7 @@ const Blog = () => {
         </Routes>
       </div>
     </div>
+    
   );
 };
 
