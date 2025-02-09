@@ -98,7 +98,7 @@ const Navbar = () => {
               Home
             </button>
           </li>
-          {["About", "FAQ", "Blog", "Contact Us"].map((link, idx) => (
+          {[ "FAQ", "Blog", "Contact Us"].map((link, idx) => (
             <li key={idx} className="mb-4 lg:mb-0">
               <button
                 onClick={() => {
