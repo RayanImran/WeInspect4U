@@ -53,9 +53,8 @@ const Navbar = () => {
             className="text-white focus:outline-none"
           >
             <svg
-              className={`w-6 h-6 transition-transform duration-300 ${
-                isOpen ? "rotate-90" : "rotate-0"
-              }`}
+              className={`w-6 h-6 transition-transform duration-300 ${isOpen ? "rotate-90" : "rotate-0"
+                }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -73,11 +72,10 @@ const Navbar = () => {
 
         {/* Links */}
         <ul
-          className={`lg:flex lg:space-x-6 w-full lg:w-auto lg:items-center lg:justify-between lg:bg-transparent bg-gray-700 lg:static absolute left-0 lg:left-auto lg:top-auto top-16 py-4 lg:py-0 px-6 lg:px-0 overflow-hidden transition-all duration-500 ease-in-out ${
-            isOpen
+          className={`lg:flex lg:space-x-6 w-full lg:w-auto lg:items-center lg:justify-between lg:bg-transparent bg-gray-700 lg:static absolute left-0 lg:left-auto lg:top-auto top-16 py-4 lg:py-0 px-6 lg:px-0 overflow-hidden transition-all duration-500 ease-in-out ${isOpen
               ? "max-h-screen opacity-100"
               : "max-h-0 opacity-0 lg:max-h-full lg:opacity-100"
-          }`}
+            }`}
         >
           {/* Order Inspection Button */}
           <li className="mb-4 lg:mb-0">
@@ -98,7 +96,7 @@ const Navbar = () => {
               Home
             </button>
           </li>
-          {["About", "FAQs", "Blog", "Contact Us"].map((link, idx) => (
+          {["FAQs", "Blog", "Contact Us"].map((link, idx) => (
             <li key={idx} className="mb-4 lg:mb-0">
               <button
                 onClick={() => {
